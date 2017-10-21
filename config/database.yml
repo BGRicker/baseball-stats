@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: baseball-stats_production
-  username: baseball-stats
+  username: postgres
   password: <%= ENV['BASEBALL-STATS_DATABASE_PASSWORD'] %>
