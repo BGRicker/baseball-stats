@@ -2,23 +2,52 @@
 
 <p>
   <strong>Player:</strong>
-  <%= @player.player_id %>
+  <%= @player.full_name %>
 </p>
 
 <p>
-  <strong>Birth year:</strong>
+  <strong>Career year:</strong>
   <%= @player.birth_year %>
-</p>
-
-<p>
-  <strong>First name:</strong>
-  <%= @player.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @player.last_name %>
 </p>
 
 <%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to 'Back', players_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>League</th>
+      <th>Team</th>
+      <th>Games</th>
+      <th>At Bats</th>
+      <th>Runs</th>
+      <th>Hits</th>
+      <th>Doubles</th>
+      <th>Triples</th>
+      <th>Home Runs</th>
+      <th>RBIs</th>
+      <th>Stolen Bases</th>
+      <th colspan="11"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @seasons.each do |season| %>
+      <tr>
+        <td><%= season.year %></td>
+        <td><%= season.league %></td>
+        <td><%= season.team_id %></td>
+        <td><%= season.games %></td>
+        <td><%= season.at_bats %></td>
+        <td><%= season.runs %></td>
+        <td><%= season.hits %></td>
+        <td><%= season.doubles %></td>
+        <td><%= season.triples %></td>
+        <td><%= season.home_runs %></td>
+        <td><%= season.rbis %></td>
+        <td><%= season.stolen_bases %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
