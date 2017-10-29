@@ -1,10 +1,10 @@
 # run `bundle exec rake db:seed` to seed the player data from this CSV into your database
 
 require 'csv'
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'players.csv'))
-csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+player_csv = File.read(Rails.root.join('lib', 'seeds', 'players.csv'))
+players = CSV.parse(player_csv, :headers => true, :encoding => 'ISO-8859-1')
 
-csv.each do |row|
+players.each do |row|
   t = Player.new
   t.player_id = row['playerID']
   t.birth_year = row['birthYear']
@@ -16,11 +16,10 @@ end
 
 puts "There are now #{Player.count} rows in the player table"
 
-require 'csv'
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'batting.csv'))
-csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+batting_csv = File.read(Rails.root.join('lib', 'seeds', 'batting.csv'))
+batters = CSV.parse(batting_csv, :headers => true, :encoding => 'ISO-8859-1')
 
-csv.each do |row|
+batters.each do |row|
   t = Season.new
   t.player_id = row['playerID']
   t.year = row['yearID']
@@ -28,8 +27,8 @@ csv.each do |row|
   t.team_id = row['teamID']
   t.games = row['G']
   t.at_bats = row['AB']
-  t.runs = row['nameLast']
-  t.hits = row['nameLast']
+  t.runs = row['R']
+  t.hits = row['H']
   t.doubles = row['2B']
   t.triples = row['3B']
   t.home_runs = row['HR']

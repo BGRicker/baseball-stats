@@ -5,15 +5,15 @@ class CreateSeasons < ActiveRecord::Migration[5.1]
       t.integer :year
       t.string :league
       t.string :team_id
-      t.integer :games
-      t.integer :at_bats
-      t.integer :runs
-      t.integer :hits
-      t.integer :doubles
-      t.integer :triples
-      t.integer :home_runs
-      t.integer :rbis
-      t.integer :stolen_bases
+      t.integer :games, :default => 0
+      t.integer :at_bats, :default => 0
+      t.integer :runs, :default => 0
+      t.integer :hits, :default => 0
+      t.integer :doubles, :default => 0
+      t.integer :triples, :default => 0
+      t.integer :home_runs, :default => 0
+      t.integer :rbis, :default => 0
+      t.integer :stolen_bases, :default => 0
 
       t.timestamps
     end
