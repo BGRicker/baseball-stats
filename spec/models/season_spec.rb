@@ -33,4 +33,14 @@ RSpec.describe Season, type: :model do
                            rbis: 7, stolen_bases: 1)
     expect(season.player).to eq(player)
   end
+
+  it "gets the correct slugging percentage, singles, and batting average" do
+    season = Season.create(player_id: "powerke01", year: 2007, league: "AL",
+                           team_id: "PIT", games: 60, at_bats: 15, runs: 3,
+                           hits: 5, doubles: 2, triples: 1, home_runs: 1,
+                           rbis: 7, stolen_bases: 1)
+    expect(season.singles).to eq(1)
+    expect(season.slugging_percentage).to eq(0.8)
+    expect(season.batting_average).to eq(0.333)
+  end
 end
