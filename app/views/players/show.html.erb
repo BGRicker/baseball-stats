@@ -6,7 +6,7 @@
 </p>
 
 <p>
-  <strong>Career year:</strong>
+  <strong>Birth year:</strong>
   <%= @player.birth_year %>
 </p>
 
@@ -24,11 +24,13 @@
       <th>At Bats</th>
       <th>Runs</th>
       <th>Hits</th>
+      <th>Batting Average</th>
       <th>Doubles</th>
       <th>Triples</th>
       <th>Home Runs</th>
       <th>RBIs</th>
       <th>Stolen Bases</th>
+      <th>Slugging Percentage</th>
       <th colspan="11"></th>
     </tr>
   </thead>
@@ -43,12 +45,33 @@
         <td><%= season.at_bats %></td>
         <td><%= season.runs %></td>
         <td><%= season.hits %></td>
+        <td><%= season.batting_average %></td>
         <td><%= season.doubles %></td>
         <td><%= season.triples %></td>
         <td><%= season.home_runs %></td>
         <td><%= season.rbis %></td>
         <td><%= season.stolen_bases %></td>
+        <td><%= season.slugging_percentage %></td>
       </tr>
     <% end %>
+  </tbody>
+
+  <tbody>
+      <tr>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><%= @player.career_stats("games") %></td>
+        <td><%= @player.career_stats("at_bats") %></td>
+        <td><%= @player.career_stats("runs") %></td>
+        <td><%= @player.career_stats("hits") %></td>
+        <td><%= @player.career_stats("batting_average") %></td>
+        <td><%= @player.career_stats("doubles") %></td>
+        <td><%= @player.career_stats("triples") %></td>
+        <td><%= @player.career_stats("home_runs") %></td>
+        <td><%= @player.career_stats("rbis") %></td>
+        <td><%= @player.career_stats("stolen_bases") %></td>
+        <td><%= @player.career_stats("slugging_percentage") %></td>
+      </tr>
   </tbody>
 </table>
