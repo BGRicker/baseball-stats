@@ -6,7 +6,7 @@ class Player < ApplicationRecord
   end
 
   def has_seasons?
-    !self.seasons.empty?
+    !seasons.empty?
   end
 
   def career_stats(statistic)
